@@ -8,7 +8,7 @@ class Movie extends Equatable {
   final String overview;
   final List<int> genreIds;
   final double voteAverage;
-  final double releaseDate;
+  final String releaseDate;
 
   const Movie({
     required this.title,

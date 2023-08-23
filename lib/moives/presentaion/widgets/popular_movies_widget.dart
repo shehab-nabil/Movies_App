@@ -17,10 +17,10 @@ class PopularMoviesWidget extends StatelessWidget {
       buildWhen: (previous, current) =>
           previous.popularMoviesState != current.popularMoviesState,
       builder: (context, state) {
-        switch (state.nowPlayingState) {
+        switch (state.popularMoviesState) {
           case RequestState.loading:
             return const SizedBox(
-              height: 400,
+              height: 170,
               child: Center(child: CircularProgressIndicator()),
             );
           case RequestState.loaded:
@@ -74,7 +74,7 @@ class PopularMoviesWidget extends StatelessWidget {
             return SizedBox(
               height: 400,
               child: Center(
-                child: Text(state.nowPlayingMessage),
+                child: Text(state.popularMoviesMessage),
               ),
             );
         }

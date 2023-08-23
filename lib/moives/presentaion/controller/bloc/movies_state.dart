@@ -10,9 +10,9 @@ class MoviesState extends Equatable {
   final RequestState popularMoviesState;
   final String popularMoviesMessage;
   //Top rated
-  final List<Movie> topRetedMovies;
-  final RequestState topRetedMoviesState;
-  final String topRetedMoviesMessage;
+  final List<Movie> topRatedMovies;
+  final RequestState topRatedMoviesState;
+  final String topRatedMoviesMessage;
 
   const MoviesState({
     this.nowPlayingMovies = const [],
@@ -21,9 +21,9 @@ class MoviesState extends Equatable {
     this.popularMovies = const [],
     this.popularMoviesState = RequestState.loading,
     this.popularMoviesMessage = '',
-    this.topRetedMovies = const [],
-    this.topRetedMoviesState = RequestState.loading,
-    this.topRetedMoviesMessage = '',
+    this.topRatedMovies = const [],
+    this.topRatedMoviesState = RequestState.loading,
+    this.topRatedMoviesMessage = '',
   });
   MoviesState copyWith({
     List<Movie>? nowPlayingMovies,
@@ -33,8 +33,8 @@ class MoviesState extends Equatable {
     RequestState? popularMoviesState,
     String? popularMoviesMessage,
     List<Movie>? topRatedMovies,
-    RequestState? topRatedState,
-    String? topRatedMessage,
+    RequestState? topRatedMoviesState,
+    String? topRatedMoviesMessage,
   }) {
     return MoviesState(
       nowPlayingMovies: nowPlayingMovies ?? this.nowPlayingMovies,
@@ -43,9 +43,10 @@ class MoviesState extends Equatable {
       popularMovies: popularMovies ?? this.popularMovies,
       popularMoviesState: popularMoviesState ?? this.popularMoviesState,
       popularMoviesMessage: popularMoviesMessage ?? this.popularMoviesMessage,
-      topRetedMovies: topRatedMovies ?? topRetedMovies,
-      topRetedMoviesState: topRatedState ?? topRetedMoviesState,
-      topRetedMoviesMessage: topRatedMessage ?? topRetedMoviesMessage,
+      topRatedMovies: topRatedMovies ?? this.topRatedMovies,
+      topRatedMoviesState: topRatedMoviesState ?? this.topRatedMoviesState,
+      topRatedMoviesMessage:
+          topRatedMoviesMessage ?? this.topRatedMoviesMessage,
     );
   }
 
@@ -56,8 +57,8 @@ class MoviesState extends Equatable {
         popularMovies,
         popularMoviesState,
         popularMoviesMessage,
-        topRetedMovies,
-        topRetedMoviesState,
-        topRetedMoviesMessage,
+        topRatedMovies,
+        topRatedMoviesState,
+        topRatedMoviesMessage,
       ];
 }

@@ -15,12 +15,12 @@ class TopRatedMoviesWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<MoviesBloc, MoviesState>(
       buildWhen: (previous, current) =>
-          previous.topRetedMoviesState != current.topRetedMoviesState,
+          previous.topRatedMoviesState != current.topRatedMoviesState,
       builder: (context, state) {
-        switch (state.nowPlayingState) {
+        switch (state.topRatedMoviesState) {
           case RequestState.loading:
             return const SizedBox(
-              height: 400,
+              height: 170,
               child: Center(child: CircularProgressIndicator()),
             );
           case RequestState.loaded:
@@ -32,9 +32,9 @@ class TopRatedMoviesWidget extends StatelessWidget {
                   shrinkWrap: true,
                   scrollDirection: Axis.horizontal,
                   padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                  itemCount: state.topRetedMovies.length,
+                  itemCount: state.topRatedMovies.length,
                   itemBuilder: (context, index) {
-                    final movie = state.topRetedMovies[index];
+                    final movie = state.topRatedMovies[index];
                     return Container(
                       padding: const EdgeInsets.only(right: 8.0),
                       child: InkWell(
@@ -74,7 +74,7 @@ class TopRatedMoviesWidget extends StatelessWidget {
             return SizedBox(
               height: 400,
               child: Center(
-                child: Text(state.nowPlayingMessage),
+                child: Text(state.topRatedMoviesMessage),
               ),
             );
         }

@@ -5,7 +5,10 @@ import 'package:movies_app/moives/domain/repository/base_movies_repo.dart';
 import 'package:movies_app/moives/domain/usecase/get_popular_movies_usecase.dart';
 import 'package:movies_app/moives/domain/usecase/get_top_rated_movies_usecase.dart';
 
+import '../../moives/domain/usecase/get_movie_details_usecase.dart';
 import '../../moives/domain/usecase/get_now_playing_movies_usecase.dart';
+import '../../moives/domain/usecase/get_recommendation_usecase.dart';
+import '../../moives/presentaion/controller/bloc/movie_details_bloc/movie_details_bloc.dart';
 import '../../moives/presentaion/controller/bloc/movies_bloc.dart';
 
 // final servicesLocator = GetIt.instance;
@@ -17,6 +20,8 @@ class ServicesLocator {
 
     servicesLocator.registerFactory(() =>
         MoviesBloc(servicesLocator(), servicesLocator(), servicesLocator()));
+    servicesLocator.registerFactory(
+        () => MovieDetailsBloc(servicesLocator(), servicesLocator()));
 
     // use cases
     servicesLocator.registerLazySingleton(
@@ -25,6 +30,11 @@ class ServicesLocator {
         () => GetPopularMoviesUseCase(servicesLocator()));
     servicesLocator.registerLazySingleton(
         () => GetTopRatedMoviesUseCase(servicesLocator()));
+    servicesLocator
+        .registerLazySingleton(() => GetMovieDetailsUseCase(servicesLocator()));
+    servicesLocator.registerLazySingleton(
+        () => GetRecommendationUseCase(servicesLocator()));
+
     // repository
     servicesLocator.registerLazySingleton<BaseMoviesRepo>(
         () => MoviesRepo(servicesLocator()));

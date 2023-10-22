@@ -7,7 +7,7 @@
 ![Dart](https://img.shields.io/badge/Dart-Language-blue?logo=dart)
 
 
-<h3 align="center">Notes App</h3>
+<h3 align="center">Movies App</h3>
 
   <p align="center">
     Movies app with clean architecture dealing with api using bloc as a state management shows the movie now playing ,popular and top rated with show details and more like this feature.
